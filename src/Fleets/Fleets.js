@@ -1,29 +1,19 @@
 import React from 'react';
-import './Fleets.sass'
+import './Fleets.css';
 
-const Fleets = ({fleets}) => {
-    // Mini Component
-    const fleetList = fleets.map(fleets => {
-        if(fleets.age > 13){
-            return (
-                <div className="fleet" key={fleets.id}>
-                    <h1>Name: {fleets.name}</h1>
-                    <h2>Age: {fleets.age}</h2>
-                    <h3>Ship Class: {fleets.shipClass}</h3>
-                </div>
-            )
-        } else {
-            return null;
-        }
-    })
+const Fleets = ({fleets, deleteFleet}) => {
+    // Note : UI Component Doesn't Have Model Inside
 
+    // Method
     // Ternary Operation
-    const fleetListSecond = fleets.map(fleets => {
+    const fleetList = fleets.map(fleets => {
         return fleets.age > 13 ? (
             <div className="fleet" key={fleets.id}>
                 <h1>Name: {fleets.name}</h1>
                 <h2>Age: {fleets.age}</h2>
                 <h3>Ship Class: {fleets.shipClass}</h3>
+                {/* If I want to get the Id With Click, then use data bind () => Method(Param) */}
+                <button onClick={() => {deleteFleet(fleets.id)}}>Remove Fleet</button>
             </div>
         ) : null;
     })
@@ -31,7 +21,7 @@ const Fleets = ({fleets}) => {
     // Rendered Component
     return(
         <div className="fleet-list">
-            {fleetListSecond}
+            {fleetList}
         </div>
     );    
 }

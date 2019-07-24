@@ -1,0 +1,19 @@
+.add-fleet form{
+    display: grid;
+    grid-template-columns: 12fr;
+    grid-template-rows: 30px;
+}
+
+.add-fleet input{
+    background: none;
+    border: none;
+    border-bottom: 1px solid #61dafb;
+    color: aliceblue;
+    font-size: 1em;
+    height: 5vh;
+}
+
+.add-fleet form:hover{
+    transition: 0.5s;
+    transform: translateY(3vh);
+}
